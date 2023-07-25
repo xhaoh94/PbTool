@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PbTool": {
+      "commandName": "Project",
+      "commandLineArgs": "-type=csharp_pbnet"
+    }
+  }
+}

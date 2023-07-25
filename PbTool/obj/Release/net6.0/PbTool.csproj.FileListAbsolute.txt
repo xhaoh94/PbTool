@@ -1,0 +1,15 @@
+D:\Project\Tool\PbTool\PbTool\bin\Release\net6.0\PbTool.exe
+D:\Project\Tool\PbTool\PbTool\bin\Release\net6.0\PbTool.deps.json
+D:\Project\Tool\PbTool\PbTool\bin\Release\net6.0\PbTool.runtimeconfig.json
+D:\Project\Tool\PbTool\PbTool\bin\Release\net6.0\PbTool.dll
+D:\Project\Tool\PbTool\PbTool\bin\Release\net6.0\PbTool.pdb
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.csproj.AssemblyReference.cache
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.AssemblyInfoInputs.cache
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.AssemblyInfo.cs
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.csproj.CoreCompileInputs.cache
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.dll
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\refint\PbTool.dll
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.pdb
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\PbTool.genruntimeconfig.cache
+D:\Project\Tool\PbTool\PbTool\obj\Release\net6.0\ref\PbTool.dll
