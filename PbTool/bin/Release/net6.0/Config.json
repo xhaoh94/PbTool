@@ -14,5 +14,12 @@
 		"protocGenGo":"./protoc-gen-go.exe",
 		"inPath":"./protofiles/protofile/server",
 		"outPath":"./out/go"
+	},
+	"ts":{	
+		"tsdpb":"./tsdpb.exe",
+		"inPath":"./protofiles/protofile/client",
+		"outPath":"./out/ts",
+		"createjson":false,
+		"usemodule":true
 	}
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Tool\\PbTool\\PbTool\\PbTool.csproj": {}
+    "D:\\Project\\Tool\\pbtool\\PbTool\\PbTool.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Tool\\PbTool\\PbTool\\PbTool.csproj": {
+    "D:\\Project\\Tool\\pbtool\\PbTool\\PbTool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Tool\\PbTool\\PbTool\\PbTool.csproj",
+        "projectUniqueName": "D:\\Project\\Tool\\pbtool\\PbTool\\PbTool.csproj",
         "projectName": "PbTool",
-        "projectPath": "D:\\Project\\Tool\\PbTool\\PbTool\\PbTool.csproj",
+        "projectPath": "D:\\Project\\Tool\\pbtool\\PbTool\\PbTool.csproj",
         "packagesPath": "C:\\Users\\XAI_C106\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Tool\\PbTool\\PbTool\\obj\\",
+        "outputPath": "D:\\Project\\Tool\\pbtool\\PbTool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\XAI_C106\\AppData\\Roaming\\NuGet\\NuGet.Config",

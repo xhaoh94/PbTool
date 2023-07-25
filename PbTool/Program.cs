@@ -58,6 +58,7 @@ internal class Program
             return;
         }
 
+        bool b = false;
         foreach (var ator in typeof(IPb).Assembly.GetTypes())
         {
             object[] attrbutes = ator.GetCustomAttributes(typeof(PbAttribute), false);
@@ -69,9 +70,15 @@ internal class Program
                     var temStr = obj.ToJsonString();
                     var pb = JsonSerializer.Deserialize(temStr, ator) as IPb;
                     pb?.Parse();
+                    b = true;
                     break;
                 }
             }
+        }
+        if (!b)
+        {
+            LogError(name + "没有找到注册的PbAttribute");
+            return;
         }
     }
 
