@@ -9,6 +9,7 @@ namespace PbTool
     public class WriteData
     {
         string content;
+        bool newLine;
         public WriteData(string _content)
         {
             content = _content;
@@ -20,6 +21,7 @@ namespace PbTool
         public void Writeln()
         {
             content += "\n";
+            newLine = true;
         }
         public void Writeln(string add, bool isBlock = true)
         {
@@ -31,6 +33,7 @@ namespace PbTool
                 }
             }
             content += add + "\n";
+            newLine = true;
         }
         public void Write(string add, bool isBlock = true)
         {
@@ -42,12 +45,13 @@ namespace PbTool
                 }
             }
             content += add;
+            newLine = false;
         }
 
         List<string> block = new List<string>();
         public void StartBlock()
         {
-            Writeln("{");
+            Writeln("{", newLine);
             block.Add("\t");
         }
         public void EndBlock(bool isLn = true)
@@ -65,12 +69,12 @@ namespace PbTool
             {
                 Directory.CreateDirectory(path);
             }
-            path += $"/{fileName}.cs";
+            path += $"/{fileName}";
             if (!File.Exists(path))
             {
                 File.CreateText(path).Dispose();
             }
-            File.WriteAllText(path, content, System.Text.Encoding.UTF8);
+            File.WriteAllText(path, content, Encoding.UTF8);
         }
     }
 }

@@ -61,7 +61,15 @@ namespace PbTool
             Console.WriteLine($"导出目录:{OutPath}");
             if (Directory.Exists(OutPath))
             {
-                Directory.Delete(OutPath, true);
+                try
+                {
+                    Directory.Delete(OutPath, true);
+                }
+                catch
+                {                    
+                    Program.LogError("导出目录有文件被其他进程占用，无法删除");
+                    return;
+                }
             }
             Directory.CreateDirectory(OutPath);
             OnParse();
