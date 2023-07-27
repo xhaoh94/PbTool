@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
@@ -20,11 +21,13 @@ namespace PbTool
 
     internal interface IPb
     {
-        void Parse();
+        void Parse(string configPath);
     }
 
     internal abstract class PbBase : IPb
     {
+        protected string ConfigPath { get; private set; } = string.Empty;
+
         [JsonPropertyName("inPath")]
         [JsonInclude]
         public string InPath = string.Empty;
@@ -32,15 +35,53 @@ namespace PbTool
         [JsonInclude]
         public string OutPath = string.Empty;
 
-        public void Parse()
+        protected string GetPaserPath(string path)
         {
+            int index = 0;
+            while (true)
+            {
+                if (path.StartsWith("./"))
+                {
+                    index++;
+                    path = path.Substring(2);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (index == 0)
+            {
+                return path;
+            }
+            int temCnt = 0;
+
+            for (int i = ConfigPath.Length - 1; i >= 0; i--)
+            {
+                if (ConfigPath[i] == '/')
+                {
+                    temCnt++;
+                }
+                if (index == temCnt)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            path = Path.Combine(ConfigPath.Substring(0, index), path).Replace("\\", "/"); ;
+            return path;
+        }
+        public void Parse(string configPath)
+        {
+            ConfigPath = System.IO.Path.GetFullPath(configPath).Replace("\\", "/");
             if (!string.IsNullOrEmpty(Program.InPath))
             {
                 InPath = Program.InPath;
             }
             if (!string.IsNullOrEmpty(Program.OutPath))
             {
-                InPath = Program.OutPath;
+                OutPath = Program.OutPath;
             }
 
             if (string.IsNullOrEmpty(InPath))
@@ -66,15 +107,18 @@ namespace PbTool
                     Directory.Delete(OutPath, true);
                 }
                 catch
-                {                    
+                {
                     Program.LogError("导出目录有文件被其他进程占用，无法删除");
                     return;
                 }
             }
             Directory.CreateDirectory(OutPath);
-            OnParse();
-
+            if (!OnParse())
+            {
+                return;
+            }
             OnCreateCmd();
+            Console.WriteLine("export success");
         }
         protected abstract bool OnParse();
 

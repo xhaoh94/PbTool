@@ -17,12 +17,6 @@ public class Command
     private Process _process;//cmd进程
     private Encoding _outEncoding = Encoding.Default;//输出字符编码
 
-    private byte[]? _tempBuffer;//临时缓冲
-    private byte[] _readBuffer = new byte[_ReadSize];//读取缓存区
-
-    private byte[]? _eTempBuffer;//临时缓冲
-    private byte[] _errorBuffer = new byte[_ReadSize];//错误读取缓存区
-
     bool _isNoWindow;
     public static Command Run(string fileName = "cmd.exe", string argument = "", bool isNoWindow = true, Action? callback = null)
     {
@@ -69,10 +63,6 @@ public class Command
         if (_isNoWindow)
         {
             _process.StandardInput.AutoFlush = true;
-
-            string strOuput = _process.StandardOutput.ReadToEnd();
-            Output?.Invoke(strOuput);
-
             ReadResult();
             ErrorResult();
         } 

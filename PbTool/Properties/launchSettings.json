@@ -2,7 +2,7 @@
   "profiles": {
     "PbTool": {
       "commandName": "Project",
-      "commandLineArgs": "-type=ts"
+      "commandLineArgs": "-type=csharp_pbnet"
     }
   }
 }

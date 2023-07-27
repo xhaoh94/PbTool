@@ -1,4 +1,5 @@
 ﻿using PbTool;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
@@ -9,6 +10,9 @@ internal class Program
     public static string NameSpace = "Pb";
     static void Main(string[] args)
     {
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        Console.OutputEncoding = Encoding.UTF8;
+
         if (args.Length == 0)
         {
             LogError("需要传入启动参数");
@@ -69,7 +73,7 @@ internal class Program
                 {
                     var temStr = obj.ToJsonString();
                     var pb = JsonSerializer.Deserialize(temStr, ator) as IPb;
-                    pb?.Parse();
+                    pb?.Parse(confgPath);
                     b = true;
                     break;
                 }
@@ -83,7 +87,7 @@ internal class Program
     }
 
     public static void LogError(string str)
-    {
+    {        
         Console.WriteLine(str);
         Console.ReadKey();
     }
