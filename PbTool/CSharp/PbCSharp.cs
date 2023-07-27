@@ -44,9 +44,9 @@ namespace PbTool
             scWd.StartBlock();
             bcstWd.StartBlock();
 
-            csWd.Writeln("public enum CS");
-            scWd.Writeln("public enum SC");
-            bcstWd.Writeln("public enum BCST");
+            csWd.Writeln("public static partial class CS");
+            scWd.Writeln("public static partial class SC");
+            bcstWd.Writeln("public static partial class BCST");
 
             csWd.StartBlock();
             scWd.StartBlock();
@@ -79,7 +79,7 @@ namespace PbTool
             {
                 var cmd = int.Parse(match.Groups["cmd"].Value);
                 var title = match.Groups["title"].Value;
-                csWd.Writeln($"{title} = {cmd},");
+                csWd.Writeln($"public const uint {title} = {cmd};");
             }
 
             matches = SC.Matches(str);
@@ -87,7 +87,7 @@ namespace PbTool
             {
                 var cmd = int.Parse(match.Groups["cmd"].Value);
                 var title = match.Groups["title"].Value;
-                scWd.Writeln($"{title} = {cmd},");
+                scWd.Writeln($"public const uint {title} = {cmd};");
             }
 
             matches = BCST.Matches(str);
@@ -95,7 +95,7 @@ namespace PbTool
             {
                 var cmd = int.Parse(match.Groups["cmd"].Value);
                 var title = match.Groups["title"].Value;
-                bcstWd.Writeln($"{title} = {cmd},");
+                bcstWd.Writeln($"public const uint {title} = {cmd};");
             }
         }
     }

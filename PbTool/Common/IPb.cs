@@ -118,7 +118,7 @@ namespace PbTool
                 return;
             }
             OnCreateCmd();
-            Console.WriteLine("export success");
+            Console.WriteLine("success");
         }
         protected abstract bool OnParse();
 
