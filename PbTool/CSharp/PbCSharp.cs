@@ -10,10 +10,7 @@ using System.Threading.Tasks;
 namespace PbTool
 {
     internal class PbCSharpBase : PbBase
-    {
-        Regex CS = new Regex(@"(//(cs|CS)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
-        Regex SC = new Regex(@"(//(sc|SC)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
-        Regex BCST = new Regex(@"(//(BCST|bcst)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
+    {        
         protected override bool OnParse()
         {
             return true;
@@ -142,7 +139,7 @@ namespace PbTool
             return true;
         }
 
-        public string GetFileName(string filePath, out string dirName)
+        string GetFileName(string filePath, out string dirName)
         {
             filePath = filePath.Replace("\\", "/");
             filePath = filePath.Replace(InPath + "/", "");
@@ -193,7 +190,7 @@ namespace PbTool
             return true;
         }
 
-        public string GetFileName(string filePath)
+        string GetFileName(string filePath)
         {
             filePath = filePath.Replace("\\", "/");
             return filePath.Replace(InPath + "/", "");

@@ -49,18 +49,24 @@ namespace PbTool
         }
 
         List<string> block = new List<string>();
-        public void StartBlock()
+        public void StartBlock(bool bracket = true)
         {
-            Writeln("{", newLine);
+            if (bracket)
+            {
+                Writeln("{", newLine);
+            }
             block.Add("\t");
         }
-        public void EndBlock(bool isLn = true)
+        public void EndBlock(bool bracket = true, bool isLn = true)
         {
             block.RemoveAt(0);
-            if (isLn)
-                Writeln("}");
-            else
-                Write("}");
+            if (bracket)
+            {
+                if (isLn)
+                    Writeln("}");
+                else
+                    Write("}");
+            }
         }
 
         public void Export(string path, string fileName)

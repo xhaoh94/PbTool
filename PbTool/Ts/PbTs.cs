@@ -21,9 +21,6 @@ namespace PbTool
             [JsonInclude]
             public Dictionary<string, List<List<string>>> MessageData;
         }
-        Regex CS = new Regex(@"(//(cs|CS)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
-        Regex SC = new Regex(@"(//(sc|SC)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
-        Regex BCST = new Regex(@"(//(BCST|bcst)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
         Regex Message = new Regex(@"(message )(?<title>(\w|_)+)({)(?<context>[\w|\s|;|=]*)(})");
         Regex Enum = new Regex(@"(enum )(?<title>(\w|_)+)({)(?<context>[\w|\s|;|=]+)(})");
         Regex Context = new Regex(@"(?<left>(\w|_|\s)+)(=)(?<right>(\d)+)(;)");
@@ -283,7 +280,7 @@ namespace PbTool
             Console.WriteLine(exportFile);
             tsWd.Export($"{OutPath}/{dirName}", $"{exportFile}.ts");
         }
-        public string GetFileName(string filePath, out string dirName)
+        string GetFileName(string filePath, out string dirName)
         {
             filePath = filePath.Replace("\\", "/");
             filePath = filePath.Replace(InPath + "/", "");

@@ -5,6 +5,7 @@ using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PbTool
@@ -26,6 +27,9 @@ namespace PbTool
 
     internal abstract class PbBase : IPb
     {
+        protected readonly Regex CS = new Regex(@"(//(cs|CS)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
+        protected readonly Regex SC = new Regex(@"(//(sc|SC)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
+        protected readonly Regex BCST = new Regex(@"(//(BCST|bcst)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
         protected string ConfigPath { get; private set; } = string.Empty;
 
         [JsonPropertyName("inPath")]
