@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PbTool
-build_property.ProjectDir = D:\Project\Tool\pbtool\PbTool\
+build_property.ProjectDir = d:\Project\Tool\pbtool\PbTool\
