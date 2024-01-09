@@ -8,13 +8,13 @@ namespace PbTool
     {
         struct PbTsJson
         {
-            [JsonPropertyName("csToMessage")]
+            [JsonPropertyName("csMessage")]
             [JsonInclude]
             public Dictionary<int, string> CSToMessage;
-            [JsonPropertyName("scToMessage")]
+            [JsonPropertyName("scMessage")]
             [JsonInclude]
             public Dictionary<int, string> SCToMessage;
-            [JsonPropertyName("bcstToMessage")]
+            [JsonPropertyName("bcstMessage")]
             [JsonInclude]
             public Dictionary<int, string> BCSTToMessage;
             [JsonPropertyName("messageData")]
@@ -25,7 +25,7 @@ namespace PbTool
         Regex Enum = new Regex(@"(enum )(?<title>(\w|_)+)({)(?<context>[\w|\s|;|=]+)(})");
         Regex Context = new Regex(@"(?<left>(\w|_|\s)+)(=)(?<right>(\d)+)(;)");
 
-        [JsonPropertyName("createjson")]
+        [JsonPropertyName("create_json")]
         [JsonInclude]
         public bool CreateJson = true;
 
@@ -119,9 +119,9 @@ namespace PbTool
             }
             else
             {
-                WriteWd(csMap, "CSToMessage", "CSToMessage");
-                WriteWd(scMap, "SCToMessage", "SCToMessage");
-                WriteWd(bcstMap, "BCSTToMessage", "BCSTToMessage");
+                WriteWd(csMap, "CSMessage", "CSMessage");
+                WriteWd(scMap, "SCMessage", "SCMessage");
+                WriteWd(bcstMap, "BCSTMessage", "BCSTMessage");
                 WriteMessageMd(map, "MessageData", "MessageData");
             }
 

@@ -32,10 +32,10 @@ namespace PbTool
         protected readonly Regex BCST = new Regex(@"(//(BCST|bcst)=)(?<cmd>([1-9][0-9]*))(message )(?<title>(\w|_)+)");
         protected string ConfigPath { get; private set; } = string.Empty;
 
-        [JsonPropertyName("inPath")]
+        [JsonPropertyName("in_path")]
         [JsonInclude]
         public string InPath = string.Empty;
-        [JsonPropertyName("outPath")]
+        [JsonPropertyName("out_path")]
         [JsonInclude]
         public string OutPath = string.Empty;
 

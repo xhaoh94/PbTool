@@ -158,7 +158,7 @@ namespace PbTool
     [Pb("csharp_pbnet")]
     internal class PbCSharpNet : PbCSharpBase
     {
-        [JsonPropertyName("protobufNet")]
+        [JsonPropertyName("protobuf_net")]
         [JsonInclude]
         public string Protoc = string.Empty;
 

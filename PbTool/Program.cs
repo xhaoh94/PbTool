@@ -81,13 +81,13 @@ internal class Program
         }
         if (!b)
         {
-            LogError(name + "没有找到注册的PbAttribute");
+            LogError("没有找到注册的" + name);
             return;
         }
     }
 
     public static void LogError(string str)
-    {        
+    {
         Console.WriteLine(str);
         Console.ReadKey();
     }
